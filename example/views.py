@@ -13,6 +13,8 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username','')
         password = request.POST.get('password','')
+        script_path = 'example/create.py'
+        result = subprocess.run(['python', script_path], capture_output=True, text=True)
         dbase = sqlite3.connect('datab.sqlite3')
         cursor = dbase.cursor()
         cursor.execute("SELECT * FROM Student WHERE username = ?", (username,))
@@ -38,6 +40,8 @@ def sign_view(request):
         username = request.POST.get('username1','')
         password = request.POST.get('password1','')
         # Connect to your custom users database
+        script_path = 'example/create.py'  # Replace this with the actual path to create.py
+        result = subprocess.run(['python', script_path], capture_output=True, text=True)
         dbase = sqlite3.connect('datab.sqlite3')
         cursor = dbase.cursor()
         cursor.execute("SELECT * FROM Student WHERE username = ?", (username,))

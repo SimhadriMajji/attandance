@@ -6,7 +6,7 @@ from example.models import Student, Teacher
 from django.http import JsonResponse
 from django.contrib.auth.forms import AuthenticationForm
 from . import *;
-
+import subprocess
 def view(request):
     return render(request,'templates/index.html')
 def login_view(request):

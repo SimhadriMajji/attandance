@@ -1,0 +1,72 @@
+$(document).ready(function() {
+    $("#studentButton").click(function() {
+        // Get the username and password values
+        var username = $("input[name='username']").val();
+        var password = $("input[name='password']").val();
+
+        // Create a data object to send in the request body
+        var data = {
+            'username': username,
+            'password': password
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/login/", // Use the correct URL for the login view
+            data: data,
+            success: function(data) {
+                console.log("Login view response:", data);
+                // Check the response data to determine if login was successful
+                if (data.status === "success") {
+                    // Redirect to the desired page
+                    console.log("username")
+                    window.location.href = "/student_view/"; // Use the correct URL for the student view
+                } else {
+                    // Handle invalid login credentials, show an error message, etc.
+                    console.log("Invalid username or password");
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                // Handle any errors that occurred during the AJAX request
+                console.log("Error:", errorThrown);
+            }
+        });
+    });
+});
+$(document).ready(function() {
+    $("#employeeButton").click(function() {
+        // Get the username and password values
+        var username = $("input[name='username1']").val();
+        var password = $("input[name='password1']").val();
+
+        // Create a data object to send in the request body
+        var data = {
+            'username': username1,
+            'password': password1
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/signin/", // Use the correct URL for the login view
+            data: data,
+            success: function(data) {
+                console.log("Login view response:", data);
+                // Check the response data to determine if login was successful
+                if (data.status === "success") {
+                    // Redirect to the desired page
+                    console.log("username")
+                    window.location.href = "/teacher_view/"; // Use the correct URL for the student view
+                } else {
+                    // Handle invalid login credentials, show an error message, etc.
+                    console.log("Invalid username or password");
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                // Handle any errors that occurred during the AJAX request
+                console.log("Error:", errorThrown);
+            }
+        });
+    });
+});
+
+

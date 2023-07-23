@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Navigation Bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .image-container {
+            height: auto;
+            display: flex;
+            flex: 1; /* Take up the remaining width */
+        }
+
+        .image-container img {
+            width: 100%; /* Set the image width to 100% */
+            height: auto; /* Let the height scale proportionally */
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 801px; /* Adjust the max-width as needed */
+            margin: 0 auto;
+        }
+        .main-container {
+            background-color: #f0f0f0;
+            padding: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .navbar {
+            background-color: #447eaa;
+            width: 250px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 10px;
+            position: absolute;
+            left: 0;
+            top: 10;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #ffffff;
+            display: block;
+            transition: background-color 0.1s;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #75b4e4;
+        }
+
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #447eaa;
+            width: 300px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .navbar li:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #75b4e4;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .radio-group input[type="radio"] {
+            display: none;
+        }
+
+        .radio-button {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            margin-right: 5px;
+            position: relative;
+        }
+
+        .radio-button::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #2196F3;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        input[type="radio"]:checked + .radio-button::before {
+            opacity: 1;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        #contentContainer {
+            margin-top: 20px;
+        }
+
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container">
+        <img src="https://firebasestorage.googleapis.com/v0/b/ecap-b24e9.appspot.com/o/title_head.jpg?alt=media&token=d90dbd15-8115-4ead-b23d-bd4b162e1ff9" alt="Your Image">
+    </div>
+    <div class="image-container">
+	    <img src="https://firebasestorage.googleapis.com/v0/b/ecap-b24e9.appspot.com/o/body.jpg?alt=media&token=90a365a3-b691-4363-b3ba-08b83f673dbf" alt="Example Image">
+	    </div>
+    <div class="main-container">
+        <div class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li>
+                    <a href="#services">Services</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#service1">Service 1</a></li>
+                        <li><a href="#service2">Service 2</a></li>
+                        <li><a href="#service3">Service 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Welcome to {{data}}</h2>
+        </div>
+    </div>
+</body>
+
+</html>

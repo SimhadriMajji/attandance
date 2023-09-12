@@ -82,11 +82,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'datab.sqlite3',  # Update database file path
     }
-    'tdata': {
-        'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'tdata.sqlite3'),
-    },
 }
 
 
